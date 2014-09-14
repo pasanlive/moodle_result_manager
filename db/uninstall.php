@@ -5,12 +5,12 @@
  *
  * author : Pasan Buddhika Weerathunga
  * email : me@pasanlive.com
- * @package    mod_pasanliveResultManager
+ * @package    mod_pasanliveresultmanager
  */
 
 /**
  * Custom uninstallation procedure
  */
-function xmldb_pasanliveResultManager_uninstall() {
+function xmldb_resultmanager_uninstall() {
     return true;
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file keeps track of upgrades to the pasanliveResultManager module
+ * This file keeps track of upgrades to the pasanliveresultmanager module
  *
  * Sometimes, changes between versions involve alterations to database
  * structures and other major things that may break installations. The upgrade
@@ -12,18 +12,18 @@
  *
  * author : Pasan Buddhika Weerathunga
  * email : me@pasanlive.com
- * @package    mod_pasanliveResultManager
+ * @package    mod_pasanliveresultmanager
  */
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Execute pasanliveResultManager upgrade from the given old version
+ * Execute pasanliveresultmanager upgrade from the given old version
  *
  * @param int $oldversion
  * @return bool
  */
-function xmldb_pasanliveResultManager_upgrade($oldversion) {
+function xmldb_resultmanager_upgrade($oldversion) {
     global $DB;
 
     $dbman = $DB->get_manager(); // loads ddl manager and xmldb classes

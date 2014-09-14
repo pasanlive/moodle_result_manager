@@ -7,7 +7,7 @@
  * author : Pasan Buddhika Weerathunga
  * email : me@pasanlive.com
  * 
- * @package    mod_pasanliveResultManagers
+ * @package    mod_pasanliveresultmanagers
  */
 
 /**
@@ -15,7 +15,7 @@
  *
  * @see upgrade_plugins_modules()
  */
-function xmldb_pasanliveResultManager_install() {
+function xmldb_resultmanager_install() {
 }
 
 /**
@@ -23,5 +23,5 @@ function xmldb_pasanliveResultManager_install() {
  *
  * @see upgrade_plugins_modules()
  */
-function xmldb_pasanliveResultManager_install_recovery() {
+function xmldb_resultmanager_install_recovery() {
 }

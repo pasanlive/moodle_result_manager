@@ -1,18 +1,18 @@
 <?php
 
 /**
- * Library of interface functions and constants for module pasanliveResultManager
+ * Library of interface functions and constants for module pasanliveresultmanager
  *
  * All the core Moodle functions, neeeded to allow the module to work
  * integrated in Moodle should be placed here.
- * All the pasanliveResultManager specific functions, needed to implement all the module
+ * All the pasanliveresultmanager specific functions, needed to implement all the module
  * logic, should go to locallib.php. This will help to save some memory when
  * Moodle is performing actions across all modules.
  *
  * author : Pasan Buddhika Weerathunga
  * email : me@pasanlive.com
  * 
- * @package    mod_pasanliveResultManager
+ * @package    mod_pasanliveresultmanager
  */
 
 defined('MOODLE_INTERNAL') || die();
@@ -31,7 +31,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $feature FEATURE_xx constant for requested feature
  * @return mixed true if the feature is supported, null if unknown
  */
-function pasanliveResultManager_supports($feature) {
+function resultmanager_supports($feature) {
     switch($feature) {
         case FEATURE_MOD_INTRO:         return true;
         case FEATURE_SHOW_DESCRIPTION:  return true;
@@ -41,51 +41,51 @@ function pasanliveResultManager_supports($feature) {
 }
 
 /**
- * Saves a new instance of the pasanliveResultManager into the database
+ * Saves a new instance of the pasanliveresultmanager into the database
  *
  * Given an object containing all the necessary data,
  * (defined by the form in mod_form.php) this function
  * will create a new instance and return the id number
  * of the new instance.
  *
- * @param object $pasanliveResultManager An object from the form in mod_form.php
- * @param mod_pasanliveResultManager_mod_form $mform
- * @return int The id of the newly inserted pasanliveResultManager record
+ * @param object $pasanliveresultmanager An object from the form in mod_form.php
+ * @param mod_resultmanager_mod_form $mform
+ * @return int The id of the newly inserted pasanliveresultmanager record
  */
-function pasanliveResultManager_add_instance(stdClass $pasanliveResultManager, mod_pasanliveResultManager_mod_form $mform = null) {
+function resultmanager_add_instance(stdClass $pasanliveresultmanager, mod_resultmanager_mod_form $mform = null) {
     global $DB;
 
-    $pasanliveResultManager->timecreated = time();
+    $pasanliveresultmanager->timecreated = time();
 
     # You may have to add extra stuff in here #
 
-    return $DB->insert_record('pasanliveResultManager', $pasanliveResultManager);
+    return $DB->insert_record('pasanliveresultmanager', $pasanliveresultmanager);
 }
 
 /**
- * Updates an instance of the pasanliveResultManager in the database
+ * Updates an instance of the pasanliveresultmanager in the database
  *
  * Given an object containing all the necessary data,
  * (defined by the form in mod_form.php) this function
  * will update an existing instance with new data.
  *
- * @param object $pasanliveResultManager An object from the form in mod_form.php
- * @param mod_pasanliveResultManager_mod_form $mform
+ * @param object $pasanliveresultmanager An object from the form in mod_form.php
+ * @param mod_resultmanager_mod_form $mform
  * @return boolean Success/Fail
  */
-function pasanliveResultManager_update_instance(stdClass $pasanliveResultManager, mod_pasanliveResultManager_mod_form $mform = null) {
+function resultmanager_update_instance(stdClass $pasanliveresultmanager, mod_resultmanager_mod_form $mform = null) {
     global $DB;
 
-    $pasanliveResultManager->timemodified = time();
-    $pasanliveResultManager->id = $pasanliveResultManager->instance;
+    $pasanliveresultmanager->timemodified = time();
+    $pasanliveresultmanager->id = $pasanliveresultmanager->instance;
 
     # You may have to add extra stuff in here #
 
-    return $DB->update_record('pasanliveResultManager', $pasanliveResultManager);
+    return $DB->update_record('pasanliveresultmanager', $pasanliveresultmanager);
 }
 
 /**
- * Removes an instance of the pasanliveResultManager from the database
+ * Removes an instance of the pasanliveresultmanager from the database
  *
  * Given an ID of an instance of this module,
  * this function will permanently delete the instance
@@ -94,16 +94,16 @@ function pasanliveResultManager_update_instance(stdClass $pasanliveResultManager
  * @param int $id Id of the module instance
  * @return boolean Success/Failure
  */
-function pasanliveResultManager_delete_instance($id) {
+function resultmanager_delete_instance($id) {
     global $DB;
 
-    if (! $pasanliveResultManager = $DB->get_record('pasanliveResultManager', array('id' => $id))) {
+    if (! $pasanliveresultmanager = $DB->get_record('pasanliveresultmanager', array('id' => $id))) {
         return false;
     }
 
     # Delete any dependent records here #
 
-    $DB->delete_records('pasanliveResultManager', array('id' => $pasanliveResultManager->id));
+    $DB->delete_records('pasanliveresultmanager', array('id' => $pasanliveresultmanager->id));
 
     return true;
 }
@@ -117,7 +117,7 @@ function pasanliveResultManager_delete_instance($id) {
  *
  * @return stdClass|null
  */
-function pasanliveResultManager_user_outline($course, $user, $mod, $pasanliveResultManager) {
+function resultmanager_user_outline($course, $user, $mod, $pasanliveresultmanager) {
 
     $return = new stdClass();
     $return->time = 0;
@@ -132,20 +132,20 @@ function pasanliveResultManager_user_outline($course, $user, $mod, $pasanliveRes
  * @param stdClass $course the current course record
  * @param stdClass $user the record of the user we are generating report for
  * @param cm_info $mod course module info
- * @param stdClass $pasanliveResultManager the module instance record
+ * @param stdClass $pasanliveresultmanager the module instance record
  * @return void, is supposed to echp directly
  */
-function pasanliveResultManager_user_complete($course, $user, $mod, $pasanliveResultManager) {
+function resultmanager_user_complete($course, $user, $mod, $pasanliveresultmanager) {
 }
 
 /**
  * Given a course and a time, this module should find recent activity
- * that has occurred in pasanliveResultManager activities and print it out.
+ * that has occurred in pasanliveresultmanager activities and print it out.
  * Return true if there was output, or false is there was none.
  *
  * @return boolean
  */
-function pasanliveResultManager_print_recent_activity($course, $viewfullnames, $timestart) {
+function resultmanager_print_recent_activity($course, $viewfullnames, $timestart) {
     return false;  //  True if anything was printed, otherwise false
 }
 
@@ -154,7 +154,7 @@ function pasanliveResultManager_print_recent_activity($course, $viewfullnames, $
  *
  * This callback function is supposed to populate the passed array with
  * custom activity records. These records are then rendered into HTML via
- * {@link pasanliveResultManager_print_recent_mod_activity()}.
+ * {@link resultmanager_print_recent_mod_activity()}.
  *
  * @param array $activities sequentially indexed array of objects with the 'cmid' property
  * @param int $index the index in the $activities to use for the next record
@@ -165,15 +165,15 @@ function pasanliveResultManager_print_recent_activity($course, $viewfullnames, $
  * @param int $groupid check for a particular group's activity only, defaults to 0 (all groups)
  * @return void adds items into $activities and increases $index
  */
-function pasanliveResultManager_get_recent_mod_activity(&$activities, &$index, $timestart, $courseid, $cmid, $userid=0, $groupid=0) {
+function resultmanager_get_recent_mod_activity(&$activities, &$index, $timestart, $courseid, $cmid, $userid=0, $groupid=0) {
 }
 
 /**
- * Prints single activity item prepared by {@see pasanliveResultManager_get_recent_mod_activity()}
+ * Prints single activity item prepared by {@see resultmanager_get_recent_mod_activity()}
 
  * @return void
  */
-function pasanliveResultManager_print_recent_mod_activity($activity, $courseid, $detail, $modnames, $viewfullnames) {
+function resultmanager_print_recent_mod_activity($activity, $courseid, $detail, $modnames, $viewfullnames) {
 }
 
 /**
@@ -184,7 +184,7 @@ function pasanliveResultManager_print_recent_mod_activity($activity, $courseid, 
  * @return boolean
  * @todo Finish documenting this function
  **/
-function pasanliveResultManager_cron () {
+function resultmanager_cron () {
     return true;
 }
 
@@ -194,7 +194,7 @@ function pasanliveResultManager_cron () {
  * @example return array('moodle/site:accessallgroups');
  * @return array
  */
-function pasanliveResultManager_get_extra_capabilities() {
+function resultmanager_get_extra_capabilities() {
     return array();
 }
 
@@ -203,21 +203,21 @@ function pasanliveResultManager_get_extra_capabilities() {
 ////////////////////////////////////////////////////////////////////////////////
 
 /**
- * Is a given scale used by the instance of pasanliveResultManager?
+ * Is a given scale used by the instance of pasanliveresultmanager?
  *
- * This function returns if a scale is being used by one pasanliveResultManager
+ * This function returns if a scale is being used by one pasanliveresultmanager
  * if it has support for grading and scales. Commented code should be
  * modified if necessary. See forum, glossary or journal modules
  * as reference.
  *
- * @param int $pasanliveResultManagerid ID of an instance of this module
- * @return bool true if the scale is used by the given pasanliveResultManager instance
+ * @param int $pasanliveresultmanagerid ID of an instance of this module
+ * @return bool true if the scale is used by the given pasanliveresultmanager instance
  */
-function pasanliveResultManager_scale_used($pasanliveResultManagerid, $scaleid) {
+function resultmanager_scale_used($pasanliveresultmanagerid, $scaleid) {
     global $DB;
 
     /** @example */
-    if ($scaleid and $DB->record_exists('pasanliveResultManager', array('id' => $pasanliveResultManagerid, 'grade' => -$scaleid))) {
+    if ($scaleid and $DB->record_exists('pasanliveresultmanager', array('id' => $pasanliveresultmanagerid, 'grade' => -$scaleid))) {
         return true;
     } else {
         return false;
@@ -225,18 +225,18 @@ function pasanliveResultManager_scale_used($pasanliveResultManagerid, $scaleid) 
 }
 
 /**
- * Checks if scale is being used by any instance of pasanliveResultManager.
+ * Checks if scale is being used by any instance of pasanliveresultmanager.
  *
  * This is used to find out if scale used anywhere.
  *
  * @param $scaleid int
- * @return boolean true if the scale is used by any pasanliveResultManager instance
+ * @return boolean true if the scale is used by any pasanliveresultmanager instance
  */
-function pasanliveResultManager_scale_used_anywhere($scaleid) {
+function resultmanager_scale_used_anywhere($scaleid) {
     global $DB;
 
     /** @example */
-    if ($scaleid and $DB->record_exists('pasanliveResultManager', array('grade' => -$scaleid))) {
+    if ($scaleid and $DB->record_exists('pasanliveresultmanager', array('grade' => -$scaleid))) {
         return true;
     } else {
         return false;
@@ -244,45 +244,45 @@ function pasanliveResultManager_scale_used_anywhere($scaleid) {
 }
 
 /**
- * Creates or updates grade item for the give pasanliveResultManager instance
+ * Creates or updates grade item for the give pasanliveresultmanager instance
  *
  * Needed by grade_update_mod_grades() in lib/gradelib.php
  *
- * @param stdClass $pasanliveResultManager instance object with extra cmidnumber and modname property
+ * @param stdClass $pasanliveresultmanager instance object with extra cmidnumber and modname property
  * @param mixed optional array/object of grade(s); 'reset' means reset grades in gradebook
  * @return void
  */
-function pasanliveResultManager_grade_item_update(stdClass $pasanliveResultManager, $grades=null) {
+function resultmanager_grade_item_update(stdClass $pasanliveresultmanager, $grades=null) {
     global $CFG;
     require_once($CFG->libdir.'/gradelib.php');
 
     /** @example */
     $item = array();
-    $item['itemname'] = clean_param($pasanliveResultManager->name, PARAM_NOTAGS);
+    $item['itemname'] = clean_param($pasanliveresultmanager->name, PARAM_NOTAGS);
     $item['gradetype'] = GRADE_TYPE_VALUE;
-    $item['grademax']  = $pasanliveResultManager->grade;
+    $item['grademax']  = $pasanliveresultmanager->grade;
     $item['grademin']  = 0;
 
-    grade_update('mod/pasanliveResultManager', $pasanliveResultManager->course, 'mod', 'pasanliveResultManager', $pasanliveResultManager->id, 0, null, $item);
+    grade_update('mod/pasanliveresultmanager', $pasanliveresultmanager->course, 'mod', 'pasanliveresultmanager', $pasanliveresultmanager->id, 0, null, $item);
 }
 
 /**
- * Update pasanliveResultManager grades in the gradebook
+ * Update pasanliveresultmanager grades in the gradebook
  *
  * Needed by grade_update_mod_grades() in lib/gradelib.php
  *
- * @param stdClass $pasanliveResultManager instance object with extra cmidnumber and modname property
+ * @param stdClass $pasanliveresultmanager instance object with extra cmidnumber and modname property
  * @param int $userid update grade of specific user only, 0 means all participants
  * @return void
  */
-function pasanliveResultManager_update_grades(stdClass $pasanliveResultManager, $userid = 0) {
+function resultmanager_update_grades(stdClass $pasanliveresultmanager, $userid = 0) {
     global $CFG, $DB;
     require_once($CFG->libdir.'/gradelib.php');
 
     /** @example */
     $grades = array(); // populate array of grade objects indexed by userid
 
-    grade_update('mod/pasanliveResultManager', $pasanliveResultManager->course, 'mod', 'pasanliveResultManager', $pasanliveResultManager->id, 0, $grades);
+    grade_update('mod/pasanliveresultmanager', $pasanliveresultmanager->course, 'mod', 'pasanliveresultmanager', $pasanliveresultmanager->id, 0, $grades);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -300,14 +300,14 @@ function pasanliveResultManager_update_grades(stdClass $pasanliveResultManager, 
  * @param stdClass $context
  * @return array of [(string)filearea] => (string)description
  */
-function pasanliveResultManager_get_file_areas($course, $cm, $context) {
+function resultmanager_get_file_areas($course, $cm, $context) {
     return array();
 }
 
 /**
- * File browsing support for pasanliveResultManager file areas
+ * File browsing support for pasanliveresultmanager file areas
  *
- * @package mod_pasanliveResultManager
+ * @package mod_pasanliveresultmanager
  * @category files
  *
  * @param file_browser $browser
@@ -321,25 +321,25 @@ function pasanliveResultManager_get_file_areas($course, $cm, $context) {
  * @param string $filename
  * @return file_info instance or null if not found
  */
-function pasanliveResultManager_get_file_info($browser, $areas, $course, $cm, $context, $filearea, $itemid, $filepath, $filename) {
+function resultmanager_get_file_info($browser, $areas, $course, $cm, $context, $filearea, $itemid, $filepath, $filename) {
     return null;
 }
 
 /**
- * Serves the files from the pasanliveResultManager file areas
+ * Serves the files from the pasanliveresultmanager file areas
  *
- * @package mod_pasanliveResultManager
+ * @package mod_pasanliveresultmanager
  * @category files
  *
  * @param stdClass $course the course object
  * @param stdClass $cm the course module object
- * @param stdClass $context the pasanliveResultManager's context
+ * @param stdClass $context the pasanliveresultmanager's context
  * @param string $filearea the name of the file area
  * @param array $args extra arguments (itemid, path)
  * @param bool $forcedownload whether or not force download
  * @param array $options additional options affecting the file serving
  */
-function pasanliveResultManager_pluginfile($course, $cm, $context, $filearea, array $args, $forcedownload, array $options=array()) {
+function resultmanager_pluginfile($course, $cm, $context, $filearea, array $args, $forcedownload, array $options=array()) {
     global $DB, $CFG;
 
     if ($context->contextlevel != CONTEXT_MODULE) {
@@ -356,26 +356,26 @@ function pasanliveResultManager_pluginfile($course, $cm, $context, $filearea, ar
 ////////////////////////////////////////////////////////////////////////////////
 
 /**
- * Extends the global navigation tree by adding pasanliveResultManager nodes if there is a relevant content
+ * Extends the global navigation tree by adding pasanliveresultmanager nodes if there is a relevant content
  *
  * This can be called by an AJAX request so do not rely on $PAGE as it might not be set up properly.
  *
- * @param navigation_node $navref An object representing the navigation tree node of the pasanliveResultManager module instance
+ * @param navigation_node $navref An object representing the navigation tree node of the pasanliveresultmanager module instance
  * @param stdClass $course
  * @param stdClass $module
  * @param cm_info $cm
  */
-function pasanliveResultManager_extend_navigation(navigation_node $navref, stdclass $course, stdclass $module, cm_info $cm) {
+function resultmanager_extend_navigation(navigation_node $navref, stdclass $course, stdclass $module, cm_info $cm) {
 }
 
 /**
- * Extends the settings navigation with the pasanliveResultManager settings
+ * Extends the settings navigation with the pasanliveresultmanager settings
  *
- * This function is called when the context for the page is a pasanliveResultManager module. This is not called by AJAX
+ * This function is called when the context for the page is a pasanliveresultmanager module. This is not called by AJAX
  * so it is safe to rely on the $PAGE.
  *
  * @param settings_navigation $settingsnav {@link settings_navigation}
- * @param navigation_node $pasanliveResultManagernode {@link navigation_node}
+ * @param navigation_node $pasanliveresultmanagernode {@link navigation_node}
  */
-function pasanliveResultManager_extend_settings_navigation(settings_navigation $settingsnav, navigation_node $pasanliveResultManagernode=null) {
+function resultmanager_extend_settings_navigation(settings_navigation $settingsnav, navigation_node $pasanliveresultmanagernode=null) {
 }
