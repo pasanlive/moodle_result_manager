@@ -6,7 +6,7 @@
  * author : Pasan Buddhika Weerathunga
  * email : me@pasanlive.com
  *
- * @package   mod_pasanlive_result_manager
+ * @package   mod_pasanliveResultManager
  * @category  grade
  */
 

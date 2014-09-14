@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Internal library of functions for module pasanlive_result_manager
+ * Internal library of functions for module pasanliveResultManager
  *
- * All the pasanlive_result_manager specific functions, needed to implement the module
+ * All the pasanliveResultManager specific functions, needed to implement the module
  * logic, should go here. Never include this file from your lib.php!
  *
  * author : Pasan Buddhika Weerathunga
  * email : me@pasanlive.com
  * 
- * @package    mod_pasanlive_result_manager
+ * @package    mod_pasanliveResultManager
  */
 
 defined('MOODLE_INTERNAL') || die();
@@ -20,6 +20,6 @@ defined('MOODLE_INTERNAL') || die();
  * @param array $things
  * @return object
  */
-//function pasanlive_result_manager_do_something_useful(array $things) {
+//function pasanliveResultManager_do_something_useful(array $things) {
 //    return new stdClass();
 //}

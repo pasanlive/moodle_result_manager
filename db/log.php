@@ -5,7 +5,7 @@
  * author : Pasan Buddhika Weerathunga
  * email : me@pasanlive.com
  * 
- * @package    mod_pasanlive_result_manager
+ * @package    mod_pasanliveResultManager
  */
 
 defined('MOODLE_INTERNAL') || die();
@@ -13,8 +13,8 @@ defined('MOODLE_INTERNAL') || die();
 global $DB;
 
 $logs = array(
-    array('module'=>'pasanlive_result_manager', 'action'=>'add', 'mtable'=>'pasanlive_result_manager', 'field'=>'name'),
-    array('module'=>'pasanlive_result_manager', 'action'=>'update', 'mtable'=>'pasanlive_result_manager', 'field'=>'name'),
-    array('module'=>'pasanlive_result_manager', 'action'=>'view', 'mtable'=>'pasanlive_result_manager', 'field'=>'name'),
-    array('module'=>'pasanlive_result_manager', 'action'=>'view all', 'mtable'=>'pasanlive_result_manager', 'field'=>'name')
+    array('module'=>'pasanliveResultManager', 'action'=>'add', 'mtable'=>'pasanliveResultManager', 'field'=>'name'),
+    array('module'=>'pasanliveResultManager', 'action'=>'update', 'mtable'=>'pasanliveResultManager', 'field'=>'name'),
+    array('module'=>'pasanliveResultManager', 'action'=>'view', 'mtable'=>'pasanliveResultManager', 'field'=>'name'),
+    array('module'=>'pasanliveResultManager', 'action'=>'view all', 'mtable'=>'pasanliveResultManager', 'field'=>'name')
 );
