@@ -1,11 +1,11 @@
-##PasanLive Result Manager##
+#PasanLive Result Manager#
 
-#About#
+##About##
  Moodle result management module
  
-#Features#
+##Features##
  TODO
  
-#Credits#
+##Credits##
  Pasan Buddhika Weerathunga
  me@pasanlive.com
